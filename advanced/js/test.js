@@ -18,6 +18,9 @@ var Vehicle = /** @class */ (function () {
         this.type = type;
         this.img = img;
     }
+    Vehicle.prototype.info = function () {
+        return [this.type, this.img];
+    };
     return Vehicle;
 }());
 var Details = /** @class */ (function (_super) {
@@ -43,7 +46,7 @@ var Details = /** @class */ (function (_super) {
         return _this;
     }
     Details.prototype.printInfo = function () {
-        return "<div class=\"card\" style=\"width: 18rem;\">\n\t<img src=\"" + _super.prototype.img + "\" class=\"card-img-top\" alt=\"...\">\n\t<div class=\"card-body\">\n\t\t<h5 class=\"card-title\">" + _super.prototype.type + " : " + this.brand + "</h5>\n\t\t<a href=\"#\" class=\"btn btn-primary\">Learn More</a>\n\t</div>\n</div>";
+        return "<div class=\"card\" style=\"width: 18rem;\">\n\t<img src=\"" + _super.prototype.info.call(this)[1] + "\" class=\"card-img-top\" alt=\"...\">\n\t<div class=\"card-body\">\n\t\t<h5 class=\"card-title\">" + _super.prototype.info.call(this)[0] + " : " + this.brand + "</h5>\n\t\t<a href=\"#\" class=\"btn btn-primary\">Learn More</a>\n\t</div>\n</div>";
     };
     return Details;
 }(Vehicle));

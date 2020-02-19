@@ -17,7 +17,7 @@ let Identity = new Person ("Jana", 21, "Dreamer");
 console.log(Identity.greetings());
 
 class Hobby extends Person {
-	activity;
+	activity: string;
 
 	constructor(name, age, jobTitle, activity){
 		super(name, age, jobTitle);

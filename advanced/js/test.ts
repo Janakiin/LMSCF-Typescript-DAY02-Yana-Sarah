@@ -3,6 +3,10 @@ class Vehicle {
 		this.type = type;
 		this.img = img;
 	}
+
+	info(){
+		return [this.type, this.img];
+	}
 }
 
 class Details extends Vehicle {
@@ -29,9 +33,9 @@ class Details extends Vehicle {
 
 	printInfo(){
 		return `<div class="card" style="width: 18rem;">
-	<img src="${super.img}" class="card-img-top" alt="...">
+	<img src="${ super.info()[1] }" class="card-img-top" alt="...">
 	<div class="card-body">
-		<h5 class="card-title">${ super.type } : ${this.brand}</h5>
+		<h5 class="card-title">${ super.info()[0] } : ${this.brand}</h5>
 		<a href="#" class="btn btn-primary">Learn More</a>
 	</div>
 </div>`;
