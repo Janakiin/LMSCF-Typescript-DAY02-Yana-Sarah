@@ -45,17 +45,19 @@ var Details = /** @class */ (function (_super) {
         _this.transmission = transmission;
         return _this;
     }
-    Details.prototype.printInfo = function () {
-        return "<div class=\"card\" style=\"width: 18rem;\">\n\t<img src=\"" + _super.prototype.info.call(this)[1] + "\" class=\"card-img-top\" alt=\"...\">\n\t<div class=\"card-body\">\n\t\t<h5 class=\"card-title\">" + _super.prototype.info.call(this)[0] + " : " + this.brand + "</h5>\n\t\t<a href=\"#\" class=\"btn btn-primary\">Learn More</a>\n\t</div>\n</div>";
+    Details.prototype.printInfo = function (i) {
+        return "\n\t\t<div class=\"card mx-3\" style=\"width: 18rem;\">\n\t<img src=\"" + _super.prototype.info.call(this)[1] + "\" class=\"card-img-top\" height=\"165px\"alt=\"...\">\n\t<div class=\"card-body\">\n\t\t<h5 class=\"card-title text-center\">" + _super.prototype.info.call(this)[0] + " : " + this.brand + "</h5>\n\t\t<a class=\"btn btn-primary ml-5\" data-toggle=\"modal\" data-target=\"#myModal" + i + "\">Learn More</a>\n\t</div>\n</div>\n\n<div class=\"modal\" id=\"myModal" + i + "\" tabindex=\"-1\" role=\"dialog\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-body\">\n        <p>Model : " + this.model + "</p>\n        <p>Color : " + this.color + "</p>\n        <p># Doors : " + this.numDoors + "</p>\n        <p># Wheels : " + this.numWheels + "</p>\n        <p>Fuel : " + this.fuel + "</p>\n        <p>Horse Power : " + this.horsepower + "</p>\n        <p>Transmission : " + this.transmission + "</p>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div>\n  </div>\n</div>";
     };
     return Details;
 }(Vehicle));
-var bicycle = new Details("Bicycle", "", "Puch", "Fastxx", "Red", 0, 2, "Manpower", 0, "none");
-var motorcycle = new Details("Motorcycle", "", "Harley Davidson", "3000Furious", "Black", 0, 2, "Petrol", 300, "none");
-var car = new Details("Car", "", "BMW", "360new", "White", 4, 4, "Gasoline", 4000, "Automatic");
-var truck = new Details("Truck", "", "Mercedes", "345xFast", "Black", 2, 10, "Petrol", 234, "Automatic");
+var bicycle = new Details("Bicycle", "img/bicycke.jpg", "Puch", "Fastxx", "Red", 0, 2, "Manpower", 0, "none");
+var motorcycle = new Details("Motorcycle", "img/motorcycle.jpg", "Harley", "3000Furious", "Black", 0, 2, "Petrol", 300, "none");
+var car = new Details("Car", "img/car.jpg", "BMW", "360new", "White", 4, 4, "Gasoline", 4000, "Automatic");
+var truck = new Details("Truck", "img/truck.jpg", "Mercedes", "345xFast", "Black", 2, 10, "Petrol", 234, "Automatic");
 var vehiclesArray = [bicycle, motorcycle, car, truck];
+var p = 0;
 for (var _i = 0, vehiclesArray_1 = vehiclesArray; _i < vehiclesArray_1.length; _i++) {
     var i = vehiclesArray_1[_i];
-    document.getElementById("result").innerHTML += i.printInfo();
+    document.getElementById("result").innerHTML += i.printInfo(p);
+    p++;
 }
